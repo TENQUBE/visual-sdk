@@ -46,8 +46,7 @@ AndroidMenifest
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tenqube.visualsample">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
+ 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
