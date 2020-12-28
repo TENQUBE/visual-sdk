@@ -121,6 +121,133 @@ Depending on your ProGuard (DexGuard) config and usage, you may need to include 
 }
 -dontwarn kotlinx.coroutines.**
 ```
+VisualService 요약
+-------------------
+```
+interface VisualService {
+
+    /**
+     * 노티를 파싱합니다.
+     */
+    fun parseNoti(sbn: StatusBarNotification, listener: SmsListener)
+
+    /**
+     * sms or mms 를 파싱합니다.
+     */
+    fun parseSms(intent: Intent, listener: SmsListener)
+
+    /**
+     * rcs를 파싱 합니다.
+     */
+    fun parseRcs(uri: Uri, listener: SmsListener)
+
+    /**
+     * 사용자 가입
+     * @param uid 고유 아이디
+     */
+    @Throws(ParameterException::class)
+    fun signUp(uid: String, gender: Gender, birth: Int, onResultListener: OnResultListener)
+
+    /**
+     * @param activity Activity activity.startActivityForResult(intent, VISUAL_REQUEST_CODE);
+     * 앱 finish 전달해줌 / acitivity 가 null 인경우 startActivity
+     *
+     * @param uid 사용자 아이디
+     * @param path 팝업 선택시 deep link로 전달받은 path값
+     * @param onResultListener 사용자 등록시 전달받을 콜백 값
+     * @throws ParameterException 파라미터가 올바르지 않은경우 예외 발생
+     */
+    @Throws(ParameterException::class)
+    fun startVisual(activity: Activity?,
+                    uid: String,
+                    path: String,
+                    onResultListener: OnResultListener)
+
+    fun startVisualDetail(activity: Activity, uid: String, parseResult: ParseResult)
+
+    @Throws(ParameterException::class)
+    fun getVisualFragment(uid: String): Fragment
+
+    fun startTerms(activity: AppCompatActivity, uid: String)
+
+    /**
+     * 사용자 초기화 함수
+     * @param callback
+     */
+    fun signOut(callback: Callback<Boolean>)
+
+    /**
+     * 팝업 보여질지 여부를 확인 합니다.
+     * @return 팝업 보여질 여부 (true : 보여짐 , false : 안보여짐)
+     */
+    fun isActiveTranPopup(): Boolean
+
+    /**
+     * 팝업 호출 여부
+     * @param isActive 팝업 보여질 여부 (true : 보여짐 , false : 안보여짐)
+     */
+    fun setTranPopup(isActive: Boolean)
+
+    /**
+     * 알람 설정
+     * @param type  ReportAlarmType.Daily, ReportAlarmType.Weekly, ReportAlarmType.Monthly 설정하고자 하는 타입
+     * @param isActive 활성화 여부
+     */
+    fun setReportAlarm(type: ReportAlarmType, isActive: Boolean)
+
+    /**
+     *
+     * @param type ReportAlarmType.Daily, ReportAlarmType.Weekly, ReportAlarmType.Monthly 설정하고자 하는 타입
+     * @return 리포트 알람 활성화 여부
+     */
+    fun isActiveReportAlarm(type: ReportAlarmType): Boolean
+
+
+    /**
+     * 앱 알림 설정 여부 저장
+     * @param isActive 활성화 여부
+     */
+    fun setAppNoti(isActive: Boolean)
+
+    /**
+     * @return 앱알림 활성화 여부
+     */
+    fun isActiveAppNoti(): Boolean
+
+    /**
+     * 로그 확인을 위한 함수
+     * @param isActive 로그 확인 여부
+     */
+    fun setLogger(isActive: Boolean)
+
+    /**
+     * SDK초기화 함수 개발 전용
+     */
+    fun initSDK()
+
+    /**
+     * SDK 사용 여부 판단 플레그
+     * @param enabled true : 동작 / false : 동작 안함.
+     */
+    fun setEnabled(enabled: Boolean)
+
+    /**
+     * 가입 여부
+     * @return 가입여부 결과 리턴
+     */
+    fun isJoined(): Boolean
+}
+
+interface SmsListener {
+    fun onResult(result: ParseResult)
+}
+
+interface OnResultListener {
+    fun onResult(signUpResult: SignUpResponse?, msg: String?)
+}
+
+```
+
 
 How do I use Visual?
 -------------------
