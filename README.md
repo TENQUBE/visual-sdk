@@ -10,8 +10,8 @@ Download
 use Gradle:
 
 
-
-```project.gradle
+project.gradle
+```
 builscript {
 ...
 }
@@ -26,7 +26,8 @@ allprojects {
 }
 ```
 
-```app.gradle
+app.gradle
+```
 repositories {
   google()
   jcenter()
