@@ -119,7 +119,7 @@ Depending on your ProGuard (DexGuard) config and usage, you may need to include 
     volatile <fields>;
 }
 -dontwarn kotlinx.coroutines.**
-```ㅁ
+```
 
 How do I use Visual?
 -------------------
