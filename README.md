@@ -124,6 +124,22 @@ Depending on your ProGuard (DexGuard) config and usage, you may need to include 
 VisualService 요약
 -------------------
 ```
+package com.tenqube.visual_third
+
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.service.notification.StatusBarNotification
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.tenqube.visual_third.domain.exception.ParameterException
+import com.tenqube.visual_third.usecase.parsing.dto.ParseResult
+import com.tenqube.visual_third.presentation.util.Callback
+import com.tenqube.visual_third.presentation.util.Constants.ReportAlarmType
+import com.tenqube.visual_third.presentation.util.Constants.SignUpResponse
+import com.tenqube.visual_third.usecase.user.dto.Gender
+import tenqube.parser.model.SMS
+
 interface VisualService {
 
     /**
@@ -168,7 +184,7 @@ interface VisualService {
     @Throws(ParameterException::class)
     fun getVisualFragment(uid: String): Fragment
 
-    fun startTerms(activity: AppCompatActivity, uid: String)
+    fun startTerms(activity: AppCompatActivity, uid: String, listener: TermsListener)
 
     /**
      * 사용자 초기화 함수
@@ -238,6 +254,10 @@ interface VisualService {
     fun isJoined(): Boolean
 }
 
+interface TermsListener {
+    fun onAgreed()
+}
+
 interface SmsListener {
     fun onResult(result: ParseResult)
 }
@@ -245,7 +265,6 @@ interface SmsListener {
 interface OnResultListener {
     fun onResult(signUpResult: SignUpResponse?, msg: String?)
 }
-
 ```
 
 
