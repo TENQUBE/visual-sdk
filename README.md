@@ -42,7 +42,7 @@ dependencies {
 ProGuard
 --------
 
-Depending on your ProGuard (DexGuard) config and usage, you may need to include the following lines in your proguard.cfg (see the [Download and Setup docs page][25] for more details):
+Depending on your ProGuard (DexGuard) config and usage, you may need to include the following lines in your proguard.cfg 
 
 ```pro
 -keep class com.tenqube.visual_third.** { *; }
