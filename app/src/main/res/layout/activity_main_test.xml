@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="웹가계부"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="447dp"
+            />
+
+
+        <Button
+            android:id="@+id/weekly_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리포트"
+            />
+
+
+        <Button
+            android:id="@+id/commerce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="커머스"
+            />
+
+        <Button
+            android:id="@+id/receipts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="영수증"
+            />
+
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_gravity="bottom"
+        android:id="@+id/weekly_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
