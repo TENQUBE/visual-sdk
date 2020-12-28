@@ -16,17 +16,18 @@ import com.tenqube.visual_third.presentation.util.VisualCallback;
 import com.tenqube.visual_third.thirdparty.analysis.model.Analysis;
 import com.tenqube.visual_third.usecase.parsing.dto.ParseResult;
 import com.tenqube.visual_third.usecase.parsing.dto.ParseStatus;
-import com.tenqube.visualsample.BuildConfig;
 import com.tenqube.visualsample.R;
 
 import java.util.ArrayList;
+
+import tenqube.parser.BuildConfig;
 
 public class VisualManager {
 
     private static VisualManager mInstance;
     public static final String API_KEY = "CFMmLz1lI41EmEqnyxwoagamUupWz4D9XoGF3kaj"; //api 키정보
     private VisualService visualService;// 비주얼 서비스 객체
-    private String uid = "uid"; // 클라이언트 고유 아이디 정보
+    private String uid = "uid";
     private Context context;
 
     public static VisualManager getInstance(Context context){
@@ -80,13 +81,15 @@ public class VisualManager {
         }
         if(visualService.isJoined()) {
             try {
-                visualService.startVisual(activity, uid, "", (signUpResult, msg) -> {
-                });
+                visualService.startVisual(activity, uid, "");
             } catch (ParameterException e) {
                 e.printStackTrace();
             }
         } else {
-            visualService.startTerms(activity, uid);
+//            visualService.startTerms(activity, uid, () -> {
+//                startVisual(activity);
+//
+//            });
         }
     }
 
@@ -97,7 +100,9 @@ public class VisualManager {
                 initialize();
             }
             activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.weekly_container, visualService.getVisualFragment(uid))
+                    .replace(R.id.weekly_container, visualService.getVisualFragment(activity, uid, () -> {
+                        // 서버저장
+                    }))
                     .commitAllowingStateLoss();
         } catch (ParameterException e) {
             e.printStackTrace();
@@ -110,14 +115,14 @@ public class VisualManager {
         }
         if(visualService.isJoined()) {
             try {
-                visualService.startVisual(activity, uid, "commerce", (signUpResult, msg) -> {
-
-                });
+                visualService.startVisual(activity, uid, "commerce");
             } catch (ParameterException e) {
                 e.printStackTrace();
             }
         } else {
-            visualService.startTerms(activity, uid);
+            visualService.startTerms(activity, uid, () -> {
+
+            });
         }
     }
 

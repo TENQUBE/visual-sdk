@@ -13,6 +13,6 @@ public class VisualSampleApp extends Application {
 
         VisualManager.getInstance(this).initialize();
 
-        RcsCatcher.getInstance(this).register(); //rcs 등록
+//        RcsCatcher.getInstance(this).register(); //rcs 등록
     }
 }
