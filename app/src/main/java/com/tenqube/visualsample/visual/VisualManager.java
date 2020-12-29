@@ -30,8 +30,8 @@ import tenqube.parser.BuildConfig;
  * 전달받은 api 키정보를 입력해주세
  */
 enum VisualLayer {
-    Dev("", Constants.DEV),
-    Prod("", Constants.PROD);
+    Dev("CFMmLz1lI41EmEqnyxwoagamUupWz4D9XoGF3kaj", Constants.DEV),
+    Prod("r8scLJTRdd8NgE1EEVkaU1hoyQDRr6G76kIskuyr", Constants.PROD);
 
     String apiKey;
     String layer;
@@ -137,7 +137,7 @@ public class VisualManager {
      */
     private void isAgreed(Callback<Boolean> callback) {
 
-        callback.onDataLoaded(false);
+        callback.onDataLoaded(visualService.isJoined());
     }
 
     /**
