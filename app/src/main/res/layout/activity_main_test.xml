@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,16 +16,24 @@
         android:orientation="horizontal">
 
         <Button
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/weekly_report"
+
             android:id="@+id/web"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="웹가계부"
-            tools:layout_editor_absoluteX="280dp"
-            tools:layout_editor_absoluteY="447dp"
             />
 
 
         <Button
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/web"
+            app:layout_constraintEnd_toStartOf="@id/receipts"
+
             android:id="@+id/weekly_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,6 +42,11 @@
 
 
         <Button
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/weekly_report"
+            app:layout_constraintEnd_toEndOf="parent"
+
             android:id="@+id/receipts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +55,7 @@
 
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:layout_gravity="bottom"
