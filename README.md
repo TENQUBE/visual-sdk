@@ -7,7 +7,7 @@ Visual
 
 Download
 --------
-[설치 및 인터페이스 자세한 설명](https://github.com/TENQUBE/visual-sdk/wiki/%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EB%AA%85)
+[설치 및 사용법](https://github.com/TENQUBE/visual-sdk/wiki/%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EB%AA%85)
 
 use Gradle:
 
@@ -36,66 +36,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tenqube.visual_third:app:0.0.1'
+    implementation 'com.tenqube.visual_third:app:0.0.4'
 }
 ```
 
-
-AndroidMenifest
---------
-```
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tenqube.visualsample">
-
- 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <application>
-...
- 
-
-<!--        파일 저장-->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-
-<!--        알림 접근 허용-->
-        <service
-            android:name=".catcher.NotiCatcher"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
-
-<!--        sms 수신 리시버-->
-        <receiver
-            android:name=".catcher.SMSCatcher"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-
-    </application>
-
-</manifest>
-
-```
 
 ProGuard
 --------
@@ -124,21 +68,6 @@ Depending on your ProGuard (DexGuard) config and usage, you may need to include 
 VisualService 요약
 -------------------
 ```
-package com.tenqube.visual_third
-
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
-import android.service.notification.StatusBarNotification
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.tenqube.visual_third.domain.exception.ParameterException
-import com.tenqube.visual_third.usecase.parsing.dto.ParseResult
-import com.tenqube.visual_third.presentation.util.Callback
-import com.tenqube.visual_third.presentation.util.Constants.ReportAlarmType
-import com.tenqube.visual_third.presentation.util.Constants.SignUpResponse
-import com.tenqube.visual_third.usecase.user.dto.Gender
-import tenqube.parser.model.SMS
 
 interface VisualService {
 
@@ -170,19 +99,16 @@ interface VisualService {
      *
      * @param uid 사용자 아이디
      * @param path 팝업 선택시 deep link로 전달받은 path값
-     * @param onResultListener 사용자 등록시 전달받을 콜백 값
      * @throws ParameterException 파라미터가 올바르지 않은경우 예외 발생
      */
     @Throws(ParameterException::class)
     fun startVisual(activity: Activity?,
                     uid: String,
-                    path: String,
-                    onResultListener: OnResultListener)
+                    path: String): Unit
 
-    fun startVisualDetail(activity: Activity, uid: String, parseResult: ParseResult)
+    fun startVisualDetail(activity: AppCompatActivity, uid: String, parseResult: ParseResult)
 
-    @Throws(ParameterException::class)
-    fun getVisualFragment(uid: String): Fragment
+    fun getVisualFragment(activity: AppCompatActivity, uid: String): VisualMainFragment
 
     fun startTerms(activity: AppCompatActivity, uid: String, listener: TermsListener)
 
@@ -285,6 +211,9 @@ public class VisualSampleApp extends Application {
         RcsCatcher.getInstance(this).register(); //rcs 등록
     }
 }
+```
+
+```
 
 //비주얼 시작하기
 VisualManager.getInstance(this).startVisual(this);
