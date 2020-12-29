@@ -7,7 +7,7 @@ Visual
 
 Download
 --------
-[설치 및 인터페이스 자세한 설명](https://github.com/TENQUBE/visual-sdk/wiki/%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EB%AA%85)
+[설치 및 사용법](https://github.com/TENQUBE/visual-sdk/wiki/%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95-%EB%B0%8F-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EB%AA%85)
 
 use Gradle:
 
