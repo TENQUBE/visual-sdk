@@ -21,7 +21,8 @@ public class SMSCatcher extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent intent) {
 
-        VisualManager.getInstance(context).parseSms(intent, result -> Log.i("SmsParsing sms: ", result.toString()));
+        VisualManager.getInstance(context).parseSms(intent, result ->
+                Log.i("SmsParsing sms: ", result.toString()));
     }
 
 }

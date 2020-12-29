@@ -34,13 +34,6 @@
 
 
         <Button
-            android:id="@+id/commerce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="커머스"
-            />
-
-        <Button
             android:id="@+id/receipts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

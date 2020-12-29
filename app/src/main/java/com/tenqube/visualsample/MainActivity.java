@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.weekly_report).setOnClickListener(view -> startReport());
 
-        findViewById(R.id.commerce).setOnClickListener(view -> startCommerce());
 
         findViewById(R.id.receipts).setOnClickListener(view -> startVisualDetail());
     }
@@ -79,13 +78,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             VisualManager.getInstance(this).startReport(this);
         }
-    }
-
-    /**
-     * 커머스 시작하기
-     */
-    private void startCommerce() {
-        VisualManager.getInstance(this).startCommerce(this);
     }
 
     /**
