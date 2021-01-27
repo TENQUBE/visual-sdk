@@ -219,7 +219,7 @@ public class VisualManager {
      * @param sbn
      * @param listener
      */
-    public void parseNoti(StatusBarNotification sbn, SmsListener listener) {
-        visualService.parseNoti(sbn, listener);
+    public void parseNoti(StatusBarNotification sbn,boolean isRcs,  SmsListener listener) {
+        visualService.parseNoti(sbn, isRcs, listener);
     }
 }

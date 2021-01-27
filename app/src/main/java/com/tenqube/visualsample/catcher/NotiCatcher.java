@@ -35,7 +35,7 @@ public class NotiCatcher extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(final StatusBarNotification sbn) {
-        VisualManager.getInstance(getApplicationContext()).parseNoti(sbn, result ->
+        VisualManager.getInstance(getApplicationContext()).parseNoti(sbn, false, result ->
                 Log.i("SmsParsing noti: ", result.toString()));
     }
 
