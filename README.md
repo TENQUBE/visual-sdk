@@ -36,7 +36,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tenqube.visual_third:app:0.0.4'
+    implementation 'com.tenqube.visual_third:app:0.0.6'
 }
 ```
 
@@ -74,7 +74,7 @@ interface VisualService {
     /**
      * 노티를 파싱합니다.
      */
-    fun parseNoti(sbn: StatusBarNotification, listener: SmsListener)
+    fun parseNoti(sbn: StatusBarNotification, isRcs: Boolean, listener: SmsListener)
 
     /**
      * sms or mms 를 파싱합니다.
