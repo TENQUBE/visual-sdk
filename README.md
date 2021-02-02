@@ -36,7 +36,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tenqube.visual_third:app:0.0.6'
+    implementation 'com.tenqube.visual_third:app:0.1.2'
 }
 ```
 
