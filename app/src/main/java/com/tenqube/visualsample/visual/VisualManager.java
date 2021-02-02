@@ -193,7 +193,7 @@ public class VisualManager {
         if(visualService == null) {
             initialize();
         }
-        visualService.startVisualDetail(activity, uid, new ParseResult(ParseStatus.Parsed, null, null, new Analysis(1, "lv0_mid_food_dining_place", "식사", "지난달 식사 지출은\\n32.3만원입니다.", "주요 지출처는\n(주)우아한형제들 (17만원)입니다.", new ArrayList<>(), 1)));
+        visualService.startVisualDetail(activity, uid, new ParseResult(ParseStatus.Parsed, null, new Analysis(1, "lv0_mid_food_dining_place", "식사", "지난달 식사 지출은\\n32.3만원입니다.", "주요 지출처는\n(주)우아한형제들 (17만원)입니다.", new ArrayList<>(), 1)));
     }
 
     /**
