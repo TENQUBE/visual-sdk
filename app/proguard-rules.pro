@@ -25,6 +25,29 @@
 -dontwarn com.tenqube.visual_third.**
 -dontnote com.tenqube.visual_third.**
 
+-keep class tenqube.parser.** {*;}
+-dontwarn tenqube.parser.**
+
+-keep class com.tenqube.commerce.** {*;}
+-dontwarn com.tenqube.commerce.**
+
+-keep class com.tenqube.notiparser.** {*;}
+-dontwarn com.tenqube.notiparser.**
+
+-keep class org.koin.** {*;}
+-dontwarn org.koin.**
+
+-keep class org.jsoup.** {*;}
+-dontwarn org.jsoup.**
+
+-keep class android.webkit.** {*;}
+-dontwarn android.webkit.**
+
+
+-keepnames class android.arch.lifecycle.ViewModel
+-keepclassmembers public class * extends android.arch.lifecycle.ViewModel { public <init>(...); }
+-keepclassmembers class * { public <init>(...); }
+
 -keepnames class kotlinx.coroutines.internal.MainDispatcherFactory { *; }
 -keepnames class kotlinx.coroutines.CoroutineExceptionHandler { *; }
 
@@ -36,4 +59,11 @@
 -keepclassmembernames class kotlinx.** {
     volatile <fields>;
 }
--dontwarn kotlinx.coroutines.**
+-dontwarn kotlinx.corㅇoutines.**
+
+-keep class com.ksp.mobilesdkjava.OScriptSystem.** { *;  }
+-keep class com.ksp.mobilesdkjava.MarketSystem.** { *;  }
+-keep class com.ksp.mobilesdkjava.BOESystem.** { *;  }
+-keep class com.ksp.mobilesdkjava.OJsonSystem.** { *;  }
+-keep class com.google.gson.** { *;  }
+-keep class com.ksp.mobilesdkjava.OHttpSystem.** { *;  }
