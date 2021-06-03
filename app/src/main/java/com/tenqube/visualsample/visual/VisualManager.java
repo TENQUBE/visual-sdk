@@ -20,11 +20,11 @@ import com.tenqube.visual_third.presentation.util.VisualCallback;
 import com.tenqube.visual_third.thirdparty.analysis.model.Analysis;
 import com.tenqube.visual_third.usecase.parsing.dto.ParseResult;
 import com.tenqube.visual_third.usecase.parsing.dto.ParseStatus;
+import com.tenqube.visualsample.BuildConfig;
 import com.tenqube.visualsample.R;
 
 import java.util.ArrayList;
 
-import tenqube.parser.BuildConfig;
 
 /**
  * 전달받은 api 키정보를 입력해주세
