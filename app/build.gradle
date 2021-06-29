@@ -44,7 +44,7 @@ android {
 dependencies {
 
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation 'com.tenqube:lgpay:1.4.6'
+    implementation 'com.tenqube:lgpay:1.4.7'
     implementation 'com.tenqube:notiparser:0.0.7'
 
     implementation 'androidx.appcompat:appcompat:1.0.0'

@@ -116,7 +116,11 @@ public class LGPayActivity extends AppCompatActivity implements SyncService, Vis
 
             findViewById(R.id.rcs_test).setOnClickListener(v -> {
 
-                visualService.parseRcs();
+                visualService.parseRcs(value -> {
+
+                    // reload 로직 추가합니다.
+
+                });
 
             });
 
