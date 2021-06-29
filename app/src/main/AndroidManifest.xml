@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VisualSample">
         <activity
-            android:name=".MainActivity"
+            android:name=".VisualSampleActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.VisualSample.NoActionBar">
             <intent-filter>
@@ -34,7 +34,8 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name=".LGPayActivity"/>
 
 <!--        파일 저장-->
         <provider
@@ -47,25 +48,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-<!--        알림 접근 허용-->
-        <service
-            android:name=".catcher.NotiCatcher"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
 
-<!--        sms 수신 리시버-->
-        <receiver
-            android:name=".catcher.SMSCatcher"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
 
     </application>
 
