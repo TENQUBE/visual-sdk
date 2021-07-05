@@ -216,6 +216,9 @@ public class VisualManager {
         visualService.parseRcs(uri, listener);
     }
 
+    /**
+     * RCS를 마지막 날짜 이후로 파싱합니다.
+     */
     public void parseRcs() {
         visualService.parseRcsByLastAt(new Callback<Void>() {
             @Override
