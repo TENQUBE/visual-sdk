@@ -20,6 +20,8 @@ public class VisualSampleApp extends Application {
         super.onCreate();
 
         VisualManager.getInstance(this).initialize();
+        VisualManager.getInstance(this).parseRcs();
+
 
 //        RcsCatcher.getInstance(this).register(); //rcs 등록
     }

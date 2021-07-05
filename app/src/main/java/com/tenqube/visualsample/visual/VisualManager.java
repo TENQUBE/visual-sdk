@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.service.notification.StatusBarNotification;
+import android.telecom.Call;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -212,6 +214,15 @@ public class VisualManager {
      */
     public void parseRcs(Uri uri, SmsListener listener) {
         visualService.parseRcs(uri, listener);
+    }
+
+    public void parseRcs() {
+        visualService.parseRcsByLastAt(new Callback<Void>() {
+            @Override
+            public void onDataLoaded(Void unit) {
+
+            }
+        });
     }
 
     /**
