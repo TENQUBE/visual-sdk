@@ -11,6 +11,7 @@ public class VisualSampleApp extends Application {
 
         Log.i("migration", "oncreate");
 
+
 //        RcsCatcher.getInstance(this).register(); //rcs 등록
     }
 }
