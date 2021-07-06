@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         findViewById(R.id.receipts).setOnClickListener(view -> startVisualDetail());
+
+        VisualManager.getInstance(this).parseRcs(); // RCS 파싱합니다.
+
     }
 
     /**

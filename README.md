@@ -21,9 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://dl.bintray.com/tenqube/visual/"
-        }
+        mavenCentral()
     }
 }
 ```
@@ -36,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tenqube.visual_third:app:0.1.2'
+    implementation 'com.tenqube:visual:0.4.3'
 }
 ```
 
@@ -85,6 +83,11 @@ interface VisualService {
      * rcs를 파싱 합니다.
      */
     fun parseRcs(uri: Uri, listener: SmsListener)
+
+    /**
+     * 마지막 날짜 이후로 파싱하는 모듈
+     */
+    fun parseRcsByLastAt(listener: Callback<Void>)
 
     /**
      * 사용자 가입
@@ -207,8 +210,18 @@ public class VisualSampleApp extends Application {
         super.onCreate();
 
         VisualManager.getInstance(this).initialize();
+   }
+}
+```
 
-        RcsCatcher.getInstance(this).register(); //rcs 등록
+```java
+public class MainActivity extends AppCompatActivity { //
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        VisualManager.getInstance(this).parseRcs(); // 런쳐 activity 해당하는 부분에 rcs 파싱을 추가해주세요
+
     }
 }
 ```
