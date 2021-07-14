@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.service.notification.StatusBarNotification;
-import android.telecom.Call;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -195,7 +193,7 @@ public class VisualManager {
         if(visualService == null) {
             initialize();
         }
-        visualService.startVisualDetail(activity, uid, new ParseResult(ParseStatus.Parsed, null, new Analysis(1, "lv0_mid_food_dining_place", "식사", "지난달 식사 지출은\\n32.3만원입니다.", "주요 지출처는\n(주)우아한형제들 (17만원)입니다.", new ArrayList<>(), 1)));
+        visualService.startVisualDetail(activity, uid, new ParseResult(ParseStatus.Parsed, null, null, new Analysis(1, "lv0_mid_food_dining_place", "식사", "지난달 식사 지출은\\n32.3만원입니다.", "주요 지출처는\n(주)우아한형제들 (17만원)입니다.", new ArrayList<>(), 1)));
     }
 
     /**
@@ -220,9 +218,12 @@ public class VisualManager {
      * RCS를 마지막 날짜 이후로 파싱합니다.
      */
     public void parseRcs() {
+//        SmsManager.INSTANCE.parsing(context, "", null);
+
         visualService.parseRcsByLastAt(new Callback<Void>() {
             @Override
             public void onDataLoaded(Void unit) {
+
 
             }
         });
