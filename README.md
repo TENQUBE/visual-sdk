@@ -223,7 +223,7 @@ VisualManager.getInstance(this).startVisual(this);
 
 Author
 ------
-TEHQNBUE
+TENQUBE
 
 License
 -------
